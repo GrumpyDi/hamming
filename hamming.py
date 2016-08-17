@@ -2,11 +2,13 @@ class Hamming(object):
     def __init__(self):
         self.curr = 1
         self.number = set([self.curr])
+        self.base = dict()
 
     def get_number(self, n):
-        for _ in range(n):
+        for i in range(n):
             res = self.get_min()
             self.curr = res
+            self.base[i + 1] = self.curr
         return self.curr
 
     def get_min(self):
